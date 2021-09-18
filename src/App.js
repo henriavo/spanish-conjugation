@@ -3,7 +3,6 @@ import SearchBar from "./components/SearchBar";
 import React from "react";
 
 class App extends React.Component {
-  numbers = [1, 2, 3, 4, 5];
   render() {
     return (
       <div>
@@ -22,7 +21,7 @@ class App extends React.Component {
           />
         </div>
         {/* SEARCH BAR & SEARCH HISTORY */}
-        <SearchBar queries={this.numbers} />
+        <SearchBar />
       </div>
     );
   }

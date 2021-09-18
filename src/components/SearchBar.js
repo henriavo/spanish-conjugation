@@ -1,38 +1,37 @@
 import React from "react";
 import "./SearchBar.css";
-import SearchHistory from "./SearchHistory";
 
 //  include SEARCH BAR and also SEARCH HISTORY
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "enter your query here bro." };
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    // this.setState( prevState => (
-    //     {
-    //         items: ...
-    //     }
-    // )
-    // )
-    console.log("you submit the form tio!");
-    //alert("where do this submits even show up?");
+    event.preventDefault();
+    console.log(`you submit the form tio! ${this.state.value}`);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
   render() {
     return (
       <div>
         <form class="example" onSubmit={this.handleSubmit}>
-          <textarea value={this.state.value} />
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
           <button type="submit">
             <i class="fa fa-search"></i>
           </button>
         </form>
-
-        <h1>Seach History:</h1>
-        <SearchHistory />
       </div>
     );
   }
