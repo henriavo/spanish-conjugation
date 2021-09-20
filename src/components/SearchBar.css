@@ -2,3 +2,9 @@ ul {
   background: #e9e5e5;
   padding: 20px;
 }
+
+.response {
+  background-color: #b3b3b3;
+  border: 2px solid DodgerBlue;
+  text-align: center;
+}
