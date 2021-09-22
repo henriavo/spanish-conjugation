@@ -1,11 +1,13 @@
 import React from "react";
 import "./SearchBar.css";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 //  include SEARCH BAR and also SEARCH HISTORY
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "enter your query here bro.", result: "" };
+    this.state = { value: "", result: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -55,15 +57,20 @@ class SearchBar extends React.Component {
         <form class="example" onSubmit={this.handleSubmit}>
           <input
             type="text"
+            autofocus
+            placeholder="enter spanish word"
+            pattern="[A-Za-z]+"
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <button type="submit">
+          <Button type="submit">
             <i class="fa fa-search"></i>
-          </button>
+          </Button>
         </form>
         <br></br>
-        <p class="response">{this.state.result}</p>
+        <Alert variant="primary">
+          <div class="response">{this.state.result}</div>
+        </Alert>
       </div>
     );
   }
